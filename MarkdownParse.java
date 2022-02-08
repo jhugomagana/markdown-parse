@@ -15,9 +15,14 @@ public class MarkdownParse {
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
             int openParen = markdown.indexOf("(", nextCloseBracket);
             int closeParen = markdown.indexOf(")", openParen);
-            //FIX #1 = break infinite loop for any other text after last found link
+            //FIX #1 => break infinite loop for any other text after last found link
             if (closeParen == -1 || openParen == -1 || nextCloseBracket == -1 || nextOpenBracket == -1){
                 break;
+            }
+            //FIX #2 => if image - skip over the link '![this](image)'
+            if (nextOpenBracket != 0 && markdown.substring(nextOpenBracket-1, nextOpenBracket).equals("!")){
+                currentIndex = closeParen + 1;
+                continue; //skip over this link
             }
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
