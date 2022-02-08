@@ -24,7 +24,12 @@ public class MarkdownParse {
                 currentIndex = closeParen + 1;
                 continue; //skip over this link
             }
-            toReturn.add(markdown.substring(openParen + 1, closeParen));
+            //FIX #3 => check if (contents) is an actual link since '[]' must immediately precede '()'
+            if(openParen != 0 && markdown.substring(openParen-1, openParen).equals("]")){
+                toReturn.add(markdown.substring(openParen + 1, closeParen));
+                currentIndex = nextCloseBracket + 1;
+                continue;
+            }
             currentIndex = closeParen + 1;
         }
         return toReturn;
