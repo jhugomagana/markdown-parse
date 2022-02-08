@@ -1,4 +1,4 @@
-## Bug *alpha*
+## Bug *&alpha;*
 >>In the initial test-file.md case, we only demonstrated that our code can read in a file as a parameter -and- the code's basic recognition of: 
 [inline-style links](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links)
 [one more link](https://some-other-link.com)
