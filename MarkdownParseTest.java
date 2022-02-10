@@ -17,42 +17,49 @@ public class MarkdownParseTest {
         assertEquals(2, 1 + 1);
     }
 
-    @Test
-    public void testFile1() throws IOException {
-        String contents= Files.readString(Path.of("./test-file.md"));
-        List<String> expect = List.of("https://something.com", "some-page.html");
-        assertEquals(MarkdownParse.getLinks(contents), expect);
-    }
+    // @Test
+    // public void testFile1() throws IOException {
+    //     String contents= Files.readString(Path.of("./test-file.md"));
+    //     List<String> expect = List.of("https://something.com", "some-page.html");
+    //     assertEquals(MarkdownParse.getLinks(contents), expect);
+    // }
     
     private String load(String words) throws IOException {
-		Path fileName = Path.of(words);
-	    String contents = Files.readString(fileName);
+		String contents= Files.readString(Path.of("./test/"+ words));
         return contents;
     }
 
-    // @Test
-    // public void parse() throws IOException {
-    //     ArrayList<String>[] list = new ArrayList[8];
-    //     list[0] = new ArrayList();
-    //     list[1] = new ArrayList();
-    //     list[2] = new ArrayList();
-    //     list[3] = new ArrayList();
-    //     list[4] = new ArrayList();
-    //     list[5] = new ArrayList();
-    //     list[6] = new ArrayList();
-    //     list[7] = new ArrayList();
-    //     list[0].add("http://something.com");
-    //     list[0].add("http://somemorething.com");
-    //     list[1].add("https://something.com");
-    //     list[1].add("some-page.html");
-    //     list[2].add("www.something.com");
-    //     list[2].add("www.something.com");
-    //     list[7].add("a link on the first line");
+    @Test
+    public void parse() throws IOException {
+        ArrayList<ArrayList<String> > list = new ArrayList<ArrayList<String> >(8);
+        ArrayList<String> file1 = new ArrayList<String>();
+        file1.add("http://something.com");
+        file1.add("some-page.html");
+        ArrayList<String> file2 = new ArrayList<String>();
+        file2.add("http://something.com");
+        file2.add("some-page.html");
+        ArrayList<String> file7 = new ArrayList<String>();
+        file7.add("page.com");
+        ArrayList<String> file8 = new ArrayList<String>();
+        file8.add("a link on the first line");
+        ArrayList<String> file3 = new ArrayList<String>();
+        ArrayList<String> file4 = new ArrayList<String>();
+        ArrayList<String> file5 = new ArrayList<String>();
+        ArrayList<String> file6 = new ArrayList<String>();
+        list.add(file1);
+        list.add(file2);
+        list.add(file3);
+        list.add(file4);
+        list.add(file5);
+        list.add(file6);
+        list.add(file7);
+        list.add(file8);
 
-    //     for (int i = 1; i < 8; i++) {
-    //         String file = load("test-file" + (i + 1) + ".md");
-    //         assertEquals(list[i],MarkdownParse.getLinks(file));
-    //     }
-    // }
+        for (int i = 0; i < 8; i++) {
+            int filenum = 1 + i;
+            String file = load("test-file" + (filenum) + ".md");
+            assertEquals("Test: " + filenum, MarkdownParse.getLinks(file), list.get(i));
+        }
+    }
 
 }
