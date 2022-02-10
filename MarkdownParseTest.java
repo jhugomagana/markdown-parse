@@ -33,19 +33,19 @@ public class MarkdownParseTest {
     public void parse() throws IOException {
         ArrayList<ArrayList<String> > list = new ArrayList<ArrayList<String> >(8);
         ArrayList<String> file1 = new ArrayList<String>();
-        file1.add("http://something.com");
+        file1.add("https://something.com");
         file1.add("some-page.html");
         ArrayList<String> file2 = new ArrayList<String>();
-        file2.add("http://something.com");
+        file2.add("https://something.com");
         file2.add("some-page.html");
-        ArrayList<String> file7 = new ArrayList<String>();
-        file7.add("page.com");
+        ArrayList<String> file5 = new ArrayList<String>();
+        file5.add("page.com");
         ArrayList<String> file8 = new ArrayList<String>();
         file8.add("a link on the first line");
         ArrayList<String> file3 = new ArrayList<String>();
         ArrayList<String> file4 = new ArrayList<String>();
-        ArrayList<String> file5 = new ArrayList<String>();
         ArrayList<String> file6 = new ArrayList<String>();
+        ArrayList<String> file7 = new ArrayList<String>();
         list.add(file1);
         list.add(file2);
         list.add(file3);
