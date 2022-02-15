@@ -25,7 +25,7 @@ public class MarkdownParseTest {
     // }
     
     private String load(String words) throws IOException {
-		String contents= Files.readString(Path.of("./test/"+ words));
+		String contents= Files.readString(Path.of(words));
         return contents;
     }
 
@@ -39,7 +39,7 @@ public class MarkdownParseTest {
         file2.add("https://something.com");
         file2.add("some-page.html");
         ArrayList<String> file5 = new ArrayList<String>();
-        file5.add("page.com");
+        //file5.add("page.com");
         ArrayList<String> file8 = new ArrayList<String>();
         file8.add("a link on the first line");
         ArrayList<String> file3 = new ArrayList<String>();
